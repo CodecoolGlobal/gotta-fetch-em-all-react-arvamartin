@@ -1,17 +1,25 @@
-import Main from './components/Main'
-import './App.css'
+import  { useState } from 'react';
+import Main from './components/Main';
+import Pokemons from './components/Pokemons';
+import './App.css';
 
 function App() {
- 
+  const [showPokemons, setShowPokemons] = useState(false);
+
+  // A gomb kattintásának kezelése az állapot változtatásával
+  function handleShowPokemons() {
+    setShowPokemons(true);
+  }
 
   return (
-    <>
-      <div>
-       <Main />
-      </div>
-      
-    </>
-  )
+    <div>
+      {showPokemons ? (
+        <Pokemons />
+      ) : (
+        <Main onShowPokemons={handleShowPokemons} />
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;

@@ -23,18 +23,16 @@ function Main() {
   }, []);
 
   return (
-    <div style={{ overflow: "auto", position: "fixed", top: 0, right: 0, bottom: 0, left: 0, transition: "box-shadow 0.25s" }}>
-      <h1 style={{ margin: "189px 0", color: "yellow"  }}>Locations:</h1>
+    <div className="custom-container">
+      <h1 style={{ margin: "189px 0", color: "yellow", fontSize: "100px"  }}>Locations:</h1>
       {data.map((location, index) => (
         <p
-          style={{ backgroundColor: randomColor(), margin: "7px 0", fontWeight: "bold" }}
-          key={index}
-        >
+          style={{ backgroundColor: randomColor(), margin: "7px 0", fontWeight: "bold",  borderRadius: "20px", fontSize: "20px" }}
+          key={index} >
           <br />
           {location.name.charAt(0).toUpperCase() + location.name.slice(1)}
           <br />
-          <br />
-          <button> Chose me! </button>
+          <button  className="custom-button"> Chose me!</button>
         </p>
       ))}
     </div>

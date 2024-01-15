@@ -6,9 +6,36 @@
 }
 body {
   background-image: url('https://www.bhmpics.com/downloads/pokemon-team-rocket-Wallpapers/9.54120-team-rocket-jessie-pokmon-meowth-pokmon-james.jpg');
-  background-size: contain;
+  background-size: 110%;
   background-repeat: no-repeat;
-  
+ 
 }
+.custom-button {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.2s;
+  margin: 5px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/hu/f/fd/Pikachu_thunderbolt.jpg');
+  background-size: cover;
+  background-repeat: no-repeat; 
+  border: none; 
+  font-size: 15px;
+  cursor: pointer; /* Mutató kurzor beállítása */
+}
+
+.custom-button:hover {
+  transform: scale(1.1); 
+}
+
+
+.custom-container {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;   
+}
+
 
 

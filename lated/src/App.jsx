@@ -11,11 +11,16 @@ function App() {
     setSelectedAreaUrl(areaUrl);
     setShowPokemons(true);
   }
+  
+
+  const handleReset = () => {
+    setShowPokemons(false);
+  };
 
   return (
     <div>
       {showPokemons ? (
-        <Pokemons areaUrl={selectedAreaUrl} />
+        <Pokemons areaUrl={selectedAreaUrl} onBack={handleReset} />
       ) : (
         <Main onShowPokemons={handleShowPokemons} />
       )}

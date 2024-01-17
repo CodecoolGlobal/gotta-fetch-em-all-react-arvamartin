@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-function Pokemons({ areaUrl }) {
-  const [pokemons, setPokemons] = useState([]);
+function Pokemons({ areaUrl, onBack }) {
+  const [randomPokemon, setRandomPokemon] = useState(null);
 
   useEffect(() => {
     async function fetchPokemons() {
@@ -23,7 +23,11 @@ function Pokemons({ areaUrl }) {
           };
         }));
 
-        setPokemons(fetchedPokemons);
+        
+        if (fetchedPokemons.length > 0) {
+          const randomIndex = Math.floor(Math.random() * fetchedPokemons.length);
+          setRandomPokemon(fetchedPokemons[randomIndex]);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -35,18 +39,20 @@ function Pokemons({ areaUrl }) {
   }, [areaUrl]);
 
   return (
-    <div className="custom-container" style={{ background: 'url("https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/others_3/SI_Pokemon_image1280w.jpg")' }}>
-      {pokemons.map((pokemon, index) => (
-        <div key={index}>
-          <img src={pokemon.image} alt={`Image of ${pokemon.name}`} />
-          <p>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
+    <div className="custom-cardcontainer" style={{ background: 'url("https://cdn.wallpapersafari.com/88/72/3LOJ5F.jpg")' }}>
+      <button onClick={onBack}>Back</button>
+      {randomPokemon && (
+        <div className="card">
+          <h4>Your Enemy</h4>
+          <img src={randomPokemon.image} alt={`Image of ${randomPokemon.name}`} style={{ width: '85%', height: '85%', imageRendering: 'pixelated', }} />
+          <p>{randomPokemon.name.charAt(0).toUpperCase() + randomPokemon.name.slice(1)}</p>
           <div>
-            {pokemon.stats.map((stat, statIndex) => (
-              <p key={statIndex}>{`${stat.statName}: ${stat.statValue}`}</p>
+            {randomPokemon.stats.map((stat, index) => (
+              <p key={index}>{`${stat.statName}: ${stat.statValue}`}</p>
             ))}
           </div>
         </div>
-      ))}
+      )}
     </div>
   );
 }

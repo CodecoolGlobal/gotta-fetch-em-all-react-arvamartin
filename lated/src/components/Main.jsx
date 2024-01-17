@@ -3,7 +3,7 @@ import  { useEffect, useState } from "react";
 
 function randomColor() {
   const colors = ["#FFA500", "#6495ED", "#F3CCF3", "#96EFFF", "#6B8E23", "#DA70D6",
-    "#DB7093", "#008080", "#F5DEB3", "#03a9f4", "#6DB465", "#90EE90",
+    "#DB7093", "#008080", "#F5DEB3", "#03a9f4", "#6DB465", "#90EE90", "#5be7a9",
     "#F5F5F5", "#FFFF00", "#F2C14E", '#00FFFF', "#7FFFD4", "#DAA520", "#F0E68C"];
   return colors[Math.floor(Math.random() * colors.length)];
 }
@@ -29,9 +29,8 @@ function Main({ onShowPokemons }) {
       <h1 style={{ margin: "189px 0", color: "yellow", fontSize: "100px" }}>Locations:</h1>
       {data.map((location, index) => (
         <p
-          style={{ backgroundColor: randomColor(), margin: "7px 0", fontWeight: "bold", borderRadius: "20px", fontSize: "20px" }}
-          key={index}
-        >
+          style={{ backgroundColor: randomColor(), margin: "7px 0", fontWeight: "bold", borderRadius: "40px", fontSize: "20px" }}
+          key={index}>
           <br />
           {location.name.charAt(0).toUpperCase() + location.name.slice(1)}
           <br />

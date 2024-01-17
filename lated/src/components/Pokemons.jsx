@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import usersPokemon from "./pokemonUrls";
 
 function Pokemons({ areaUrl, onBack }) {
   const [randomPokemon, setRandomPokemon] = useState(null);
+  
 
   useEffect(() => {
     async function fetchPokemons() {
@@ -40,12 +42,12 @@ function Pokemons({ areaUrl, onBack }) {
 
   return (
     <div className="custom-cardcontainer" style={{ background: 'url("https://cdn.wallpapersafari.com/88/72/3LOJ5F.jpg")' }}>
-      <button onClick={onBack}>Back</button>
+      <button className="backbtn" onClick={onBack}></button>
       {randomPokemon && (
         <div className="card">
           <h4>Your Enemy</h4>
           <img src={randomPokemon.image} alt={`Image of ${randomPokemon.name}`} style={{ width: '85%', height: '85%', imageRendering: 'pixelated', }} />
-          <p>{randomPokemon.name.charAt(0).toUpperCase() + randomPokemon.name.slice(1)}</p>
+          <p>{randomPokemon.name.charAt(0).toUpperCase() + randomPokemon.name.slice(1)} </p>
           <div>
             {randomPokemon.stats.map((stat, index) => (
               <p key={index}>{`${stat.statName}: ${stat.statValue}`}</p>

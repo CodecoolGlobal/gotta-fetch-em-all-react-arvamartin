@@ -37,7 +37,8 @@ body {
   left: 0;   
 }
 
-.custom-cardcontainer{
+.enemy-container{
+  top: 20px;
   overflow: auto;
   position: fixed;
   top: 0;
@@ -45,7 +46,7 @@ body {
   bottom: 0;
   left: 0;   
 }
-.card{
+.enemycard{
   margin-left: 30px;
   font-weight: bold;
   max-width: 230px;
@@ -58,7 +59,29 @@ h4 {
   color: red;
 }
 
+.friend-container{
+  top: 80px;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;   
+}
+.friendcard{
+  
+  margin-left: 60px;
+  font-weight: bold;
+  max-width: 230px;
+  border: 10px solid rgb(22, 125, 228);
+  border-radius: 50px;
+  width: 100%;
+  background-color: rgb(240, 222, 121);
+
+}
+
 .backbtn{
+  position: fixed;
+  right: 100px;
   width: 40px;
   height: 40px;
   transition: transform 0.2s;

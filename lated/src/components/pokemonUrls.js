@@ -1,5 +1,5 @@
 const usersPokemon = [
-    "https://pokeapi.co/api/v2/pokemon/bulbasaur",
+    "https://pokeapi.co/api/v2/pokemon/venusaur",
     "https://pokeapi.co/api/v2/pokemon/raichu",
     "https://pokeapi.co/api/v2/pokemon/charizard",
     "https://pokeapi.co/api/v2/pokemon/meowth/",

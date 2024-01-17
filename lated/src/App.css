@@ -60,18 +60,20 @@ h4 {
 }
 
 .friend-container{
-  top: 80px;
+  top: 100px;
   position: relative;
-  top: 0;
+  top: -30px;
   right: 0;
   bottom: 0;
   left: 0;   
 }
 .friendcard{
-  
+
   margin-left: 60px;
+  top: 0; 
+  margin-top: 5px;
   font-weight: bold;
-  max-width: 230px;
+  max-width: 250px;
   border: 10px solid rgb(22, 125, 228);
   border-radius: 50px;
   width: 100%;
@@ -92,4 +94,56 @@ h4 {
   border: none; 
   font-size: 15px;
   cursor: pointer; /* Mutató kurzor beállítása */
+}
+
+.battle{
+  background-image: url('https://cdn.icon-icons.com/icons2/851/PNG/512/Battle_icon-icons.com_67586.png');
+  background-size: 100%;
+  background-repeat: no-repeat; 
+  width: 40px;
+  height: 30px;
+  transition: transform 0.2s;
+}
+.battle:hover {
+  transform: scale(2.1); 
+}
+
+.battlefield{
+  top: 20px;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; 
+  background-image: url('https://i.pinimg.com/originals/5c/6b/cf/5c6bcfe3e9ccac61e559256445cf56c6.png');
+  background-size: 100%;
+}
+
+.friend-opponent {
+  position: fixed; 
+  top: 0; 
+  left: 65%; 
+  transform: translateX(-50%); /* Korrekció az elem középre igazításához */
+  margin-top: 6%; /* Egy kis felső margó, ha szükséges */
+  font-weight: bold;
+  max-width: 250px;
+  border: 10px solid rgb(22, 125, 228);
+  border-radius: 50px;
+  width: 100%;
+  background-color: rgb(240, 222, 121);
+}
+
+.enemy-opponent{
+  position: fixed; 
+  top: 0; 
+  left: 35%; 
+  transform: translateX(-50%); /* Korrekció az elem középre igazításához */
+  margin-top: 6%; /* Egy kis felső margó, ha szükséges */
+  font-weight: bold;
+  max-width: 250px;
+  border: 10px solid rgb(9, 76, 3);
+  border-radius: 50px;
+  width: 100%;
+  background-color: rgb(240, 222, 121);
 }

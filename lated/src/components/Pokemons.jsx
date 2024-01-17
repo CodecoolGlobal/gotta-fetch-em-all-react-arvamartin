@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import usersPokemon from "./pokemonUrls";
 
-function Pokemons({ areaUrl, onBack }) {
-  const [randomPokemon, setRandomPokemon] = useState(null);
+
+function Pokemons({ areaUrl, onBack, onBattle, setRandomPokemon }) {
+  const [randomPokemon, setLocalRandomPokemon] = useState(null);
   const [pokemonList, setPokemonList] = useState([]);
 
   useEffect(() => {
@@ -19,13 +20,13 @@ function Pokemons({ areaUrl, onBack }) {
       };
     }
 
-    async function fetchPokemons() {
+    async function fetchAllPokemons() {
       try {
-        // Fetching user's pok
+        //////////// Fetching user's Pokemons
         const userPokemons = await Promise.all(usersPokemon.map(url => fetchPokemon(url)));
         setPokemonList(userPokemons);
 
-        //fetch random pok
+        /////////// Fetching random Pokemon
         if (areaUrl) {
           const areaResponse = await fetch(areaUrl);
           const areaData = await areaResponse.json();
@@ -34,7 +35,8 @@ function Pokemons({ areaUrl, onBack }) {
             const randomIndex = Math.floor(Math.random() * encounters.length);
             const randomEncounter = encounters[randomIndex];
             const randomAreaPokemon = await fetchPokemon(randomEncounter.pokemon.url);
-            setRandomPokemon(randomAreaPokemon);
+            setLocalRandomPokemon(randomAreaPokemon);
+            setRandomPokemon(randomAreaPokemon); 
           }
         }
       } catch (error) {
@@ -42,8 +44,8 @@ function Pokemons({ areaUrl, onBack }) {
       }
     }
 
-    fetchPokemons();
-  }, [areaUrl]);
+    fetchAllPokemons();
+  }, [areaUrl, setRandomPokemon]);
 
   return (
     <div>
@@ -51,8 +53,8 @@ function Pokemons({ areaUrl, onBack }) {
         <button className="backbtn" onClick={onBack}></button>
         {randomPokemon && (
           <div className="enemycard">
-            <h4>Random Enemy</h4>
-            <img src={randomPokemon.image} alt={`Image of ${randomPokemon.name}`} style={{ width: '85%', height: '85%', imageRendering: 'pixelated' }} />
+            <h4>Random Pokemon</h4>
+            <img src={randomPokemon.image} alt={`${randomPokemon.name}`} style={{ width: '85%', height: '85%', imageRendering: 'pixelated' }} />
             <p>{randomPokemon.name.charAt(0).toUpperCase() + randomPokemon.name.slice(1)}</p>
             <div>
               {randomPokemon.stats.map((stat, index) => (
@@ -72,6 +74,7 @@ function Pokemons({ areaUrl, onBack }) {
                 <p key={statIndex}>{`${stat.statName}: ${stat.statValue}`}</p>
               ))}
             </div>
+            <button className="battle" onClick={() => onBattle(pokemon)}></button>
           </div>
         ))}
       </div>

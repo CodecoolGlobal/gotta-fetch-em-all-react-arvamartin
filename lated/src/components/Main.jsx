@@ -36,8 +36,7 @@ function Main({ onShowPokemons }) {
           <br />
           <button
             onClick={() => handleButtonClick(location.url)}
-            className="custom-button"
-          >
+            className="custom-button">
           </button>
         </p>
       ))}

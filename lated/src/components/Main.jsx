@@ -29,7 +29,7 @@ function Main({ onShowPokemons }) {
       <h1 style={{ margin: "189px 0", color: "yellow", fontSize: "100px" }}>Locations:</h1>
       {data.map((location, index) => (
         <p
-          style={{ backgroundColor: randomColor(), margin: "7px 0", fontWeight: "bold", borderRadius: "40px", fontSize: "20px" }}
+          style={{ backgroundColor: randomColor(), margin: "7px 0", fontWeight: "bold", borderRadius: "40px", fontSize: "18px" }}
           key={index}>
           <br />
           {location.name.charAt(0).toUpperCase() + location.name.slice(1)}

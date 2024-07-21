@@ -12,12 +12,12 @@ function Battle({ userPokemon, randomPokemon }) {
     const Z = Math.floor(Math.random() * (255 - 217 + 1)) + 217;
     return Math.round(((((2 / 5 + 2) * B * 60 / D) / 50) + 2) * Z / 255);
   };
-    ///te támadsz
+    ///you attack
   const handleAttack = () => {
     const damageToOpponent = calculateDamage(userPokemon, randomPokemon);
     setOpponentHp(hp => Math.max(hp - damageToOpponent, 0));
 
-    ////// ha győztél
+    ////// if you win
     if (opponentHp - damageToOpponent <= 0) {
       alert('You won!');
       return;
@@ -27,7 +27,7 @@ function Battle({ userPokemon, randomPokemon }) {
     const damageToUser = calculateDamage(randomPokemon, userPokemon);
     setUserHp(hp => Math.max(hp - damageToUser, 0));
 
-    ////// elenfél támad
+    ////// enemy attacks
     if (userHp - damageToUser <= 0) {
       alert('LOOOOSER!');
     }
@@ -50,7 +50,7 @@ function Battle({ userPokemon, randomPokemon }) {
       <div className="friendcard-container">
         {userPokemon && (
           <div className="friend-opponent">
-            <h3>User's Pokémon</h3>
+            <h3>Your Pokémon</h3>
             <img src={userPokemon.image} alt={userPokemon.name} />
             <p>{userPokemon.name}</p>
             <p>HP: {userHp}</p>

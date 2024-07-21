@@ -25,7 +25,6 @@ function App() {
   const handleBattleEnd = (isVictory) => {
     setInBattle(false);
     setShowPokemons(false);
-    // Additional logic for victory or defeat
   };
 
   return (
